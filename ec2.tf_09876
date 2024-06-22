@@ -1,0 +1,64 @@
+provider "aws" {
+  region     = "us-east-1"
+  access_key = "AKIAW3MD6WTSWJPZU25M"
+  secret_key = "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"
+}
+
+
+
+resource "null_resource" "null_resource_simple" {
+ provisioner "local-exec" {
+  command = "echo Hello World "
+ }
+}
+
+provisioner "remote-exec" {
+   inline = [ "sudo yum install nginx -y "]
+            
+}
+
+resource "null_resource" "sampleresource" {
+  provisioner "local-exec" {
+    command = "Hi world"
+
+  }
+
+
+
+}
+
+provsioner "remote-exec" {
+  inline = "sudo yum install git -y "
+}
+
+resource "null_resource" "sampleresource" {
+  provisioner = "local-exec"
+  command = " Hi World "
+
+}
+
+provisioner "remote-exec" {
+  inline = " sudo yum install git -y "
+}
+
+resource "null_resource" "sampleresource" {
+  provisioner = "local-exec"
+  command = " Hi World "
+}
+
+provisioner "remote-exec" {
+  inline = "sudo shutdown -r now "
+}
+
+vpc private link
+vpc transit gateway 
+dynamo db
+kubernetes networking model
+
+privisioner "remote-exec" {
+  inline = "sudo shutdown -r now "
+}
+
+provisioner "null_resource" "sampleresource" {
+  command = "Hi World"
+}

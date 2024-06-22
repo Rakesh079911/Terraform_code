@@ -1,0 +1,7 @@
+terraform {
+  backend "s3" {
+    bucket   = "terraformbucketmybucket0188738"
+    key      = "terraform.tfstate"
+    region   = "ap-south-1"
+  }
+ }

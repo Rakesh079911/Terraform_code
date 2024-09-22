@@ -1,0 +1,17 @@
+provider "aws" {
+    access_key = "AKIAW3MD6WTST545JZPP"
+    secret_key = "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"
+    region = "us-east-1"
+}
+
+resource "aws_db_instance" "default" {
+  allocated_storage    = 20
+  db_name              = "mydb"
+  engine               = "mysql"
+  engine_version       = "8.0"
+  instance_class       = "db.t3.micro"
+  username             = "foo"
+  password             = "foobarbaz"
+  parameter_group_name = "default.mysql8.0"
+  skip_final_snapshot  = true
+}

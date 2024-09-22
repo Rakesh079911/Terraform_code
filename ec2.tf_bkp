@@ -1,0 +1,10 @@
+provider "aws" {
+  region     = "us-east-1"
+  access_key = "AKIAW3MD6WTSRS6VDYUM"
+  secret_key = "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"
+}
+
+resource "aws_instance" "webapp" {
+    ami = ""
+    instance_type = "t2.micro"
+}ami-033a1ebf088e56e81

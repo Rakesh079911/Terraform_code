@@ -1,0 +1,26 @@
+/*provider "aws" {
+  region     = "us-east-1"
+  access_key = "AKIAW3MD6WTSRS6VDYUM"
+  secret_key = "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"
+}*/
+
+/*data "aws_ami" "myimage" {
+  most_recent      = true
+  owners           = ["amazon"]
+
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"]
+  }
+}
+
+resource "aws_instance" "web" {
+  ami           = data.aws_ami.myimage.image_id
+  instance_type = "t2.micro"
+}*/
+
+
+resource "aws_instance" "myec2" {
+  ami           = "ami-033a1ebf088e56e81"
+  instance_type = var.instancetype
+}

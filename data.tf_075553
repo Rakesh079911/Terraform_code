@@ -1,0 +1,49 @@
+provider "aws" {
+    region = "us-east-1"
+    access_key = "AKIAW3MD6WTSWJPZU25M"
+    secret_key = "FJRWmnesDYrgf7q8KkZJVXIuVsPVwHCB7vQ/2qOr"
+
+}
+
+# Find the latest available AMI that is tagged with Component = web
+/*data "aws_ami" "example" {
+  executable_users = ["self"]
+  most_recent      = true
+  name_regex       = "^myami-\\d{3}"
+  owners           = ["self"]
+
+  filter {
+    name   = "name"
+    values = ["myami-*"]
+  }
+
+  filter {
+    name   = "root-device-type"
+    values = ["ebs"]
+  }
+
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+}
+
+resource "aws_instance" "example" {
+  ami           = data.aws_ami.example.id
+  instance_type = "t1.micro"
+}*/
+
+data "aws_ami" "myimage" {
+  most_recent      = true
+  owners           = ["amazon"]
+
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"]
+  }
+}
+
+resource "aws_instance" "web" {
+  ami           = data.aws_ami.myimage.image_id
+  instance_type = "t2.micro"
+}

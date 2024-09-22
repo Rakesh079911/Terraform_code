@@ -1,0 +1,9 @@
+resource "aws_s3_bucket" "mys3"{
+    bucket = "mybucket09il40988"
+    region = "us-east-1"
+}
+
+resource "aws_s3_bucket" "mys3" {
+    bucket = "mybucket0987773"
+    region = "us-east-1"
+}
